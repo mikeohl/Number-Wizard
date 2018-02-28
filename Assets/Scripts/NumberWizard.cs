@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿/* NumberWizard is a simple binary search number guessing
+ * game where the computer guesses the player's number. 
+ */
+
+using UnityEngine;
 using System.Collections;
 using System.Reflection;
 
@@ -16,11 +20,11 @@ public class NumberWizard : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.UpArrow)) {
-			// print ("Up arrow was pressed");
+			// Debug.Log("Up arrow was pressed");
 			min = guess;
 			NextGuess();
 		} else if (Input.GetKeyDown(KeyCode.DownArrow)) {
-			// print ("Down arrow was pressed");
+			// Debug.log("Down arrow was pressed");
 			max = guess;
 			NextGuess();
 		} else if (Input.GetKeyDown(KeyCode.Return)) { 
@@ -29,6 +33,7 @@ public class NumberWizard : MonoBehaviour {
 		}
 	}
 	
+	// Initialize values, print introduction, and query user
 	void StartGame () {
 		max = 1000;
 		min = 1;
@@ -47,6 +52,7 @@ public class NumberWizard : MonoBehaviour {
 		max = max + 1;
 	}
 	
+	// Compute next guess and query user
 	void NextGuess () { 
 		guess = (max + min) / 2;
 		print ("Higher or lower than " + guess + "?");
